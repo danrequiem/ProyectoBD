@@ -50,6 +50,7 @@ public partial class MainWindow: Gtk.Window
 
 	private void cuerpo()
 	{
+
 		AccionesDeRegistros acciones = new AccionesDeRegistros();
 		System.Collections.ArrayList personas = acciones.obtenerTodos();
 		foreach(Registros alumno in personas){
@@ -76,6 +77,8 @@ public partial class MainWindow: Gtk.Window
 		this.boton("btnEditar_" + registros.id, "Editar", "gtk-edit");
 		this.x += 70;
 		this.boton("btnEliminar_" + registros.id, "Eliminar", "gtk-delete");
+		this.x += 80;
+		this.boton("btnEnviar_"+ registros.id, "Mail", "gtk-mail");
 	}
 	private void boton(string nombre, string label, string imagen){
 		Gtk.Button boton = new global::Gtk.Button ();
@@ -110,9 +113,15 @@ public partial class MainWindow: Gtk.Window
 			boton.Clicked += new global::System.EventHandler (this.OnDeleteClicked);
 		} else if (imagen == "gtk-edit") {
 			boton.Clicked += new global::System.EventHandler (this.OnEditClicked);
-		} else {
+		} else if(imagen == "gtk-Ver"){
 			boton.Clicked += new global::System.EventHandler (this.OnVerClicked);
 		}
+		else{
+
+			boton.Clicked += new global::System.EventHandler(this.OnMailClicked);
+
+		}
+
 
 	}
 	protected virtual void OnDeleteClicked (object sender, System.EventArgs e)
@@ -140,14 +149,16 @@ public partial class MainWindow: Gtk.Window
 	{
 		Gtk.Button btnEdit = (Gtk.Button) sender;
 		string id = btnEdit.Name.Replace("btnEditar_", "");
-		Editar editar = new Editar(this, id);
+		bool PoderEditar = true;
+		Editar editar = new Editar(this, id, PoderEditar);
 		editar.Show();
 	}
 	protected virtual void OnVerClicked (object sender, System.EventArgs e)
-	{
-		Gtk.Button btnEdit = (Gtk.Button) sender;
-		string id = btnEdit.Name.Replace("btnEliminar_", "");
-		Editar editar = new Editar(this, id);
+	{	
+		Gtk.Button btnVer = (Gtk.Button) sender;
+		string id = btnVer.Name.Replace("btnVer_", "");
+		bool PoderEditar = false;
+		Editar editar = new Editar(this, id, PoderEditar);
 		editar.Show();
 	}
 
@@ -161,11 +172,20 @@ public partial class MainWindow: Gtk.Window
 		w11.X = this.x;
 		w11.Y = this.y;
 	}
-
-
+	
 	protected void OnNuevoClicked (object sender, EventArgs e)
 	{
 		NuevoForm nuevo = new NuevoForm(this);
 		nuevo.Show();
 	}
+	protected virtual void OnMailClicked (object sender, System.EventArgs e)
+	{	
+		Gtk.Button btnMail = (Gtk.Button) sender;
+		string id = btnMail.Name.Replace("btnEnviar_", "");
+		mailForm mail = new mailForm (this, id);
+		mail.Show ();
+	}
+
+
+
 }

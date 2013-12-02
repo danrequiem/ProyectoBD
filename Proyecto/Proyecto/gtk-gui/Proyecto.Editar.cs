@@ -32,7 +32,8 @@ namespace Proyecto
 		private global::Gtk.Entry txtRadio;
 		private global::Gtk.Label label16;
 		private global::Gtk.Entry txtObs;
-		private global::Gtk.Button button2;
+		private global::Gtk.Button Hola;
+		private global::Gtk.Button Boton;
 
 		protected virtual void Build ()
 		{
@@ -545,15 +546,25 @@ namespace Proyecto
 			w27.X = 20;
 			w27.Y = 376;
 			// Container child fixed2.Gtk.Fixed+FixedChild
-			this.button2 = new global::Gtk.Button ();
-			this.button2.CanFocus = true;
-			this.button2.Name = "button2";
-			this.button2.UseUnderline = true;
-			this.button2.Label = global::Mono.Unix.Catalog.GetString ("Guardar");
-			this.fixed2.Add (this.button2);
-			global::Gtk.Fixed.FixedChild w28 = ((global::Gtk.Fixed.FixedChild)(this.fixed2 [this.button2]));
-			w28.X = 716;
-			w28.Y = 528;
+			this.Hola = new global::Gtk.Button ();
+			this.Hola.CanFocus = true;
+			this.Hola.Name = "Hola";
+			this.Hola.UseUnderline = true;
+			this.Hola.Label = global::Mono.Unix.Catalog.GetString ("Cerrar");
+			this.fixed2.Add (this.Hola);
+			global::Gtk.Fixed.FixedChild w28 = ((global::Gtk.Fixed.FixedChild)(this.fixed2 [this.Hola]));
+			w28.X = 723;
+			w28.Y = 521;
+			// Container child fixed2.Gtk.Fixed+FixedChild
+			this.Boton = new global::Gtk.Button ();
+			this.Boton.CanFocus = true;
+			this.Boton.Name = "Boton";
+			this.Boton.UseUnderline = true;
+			this.Boton.Label = global::Mono.Unix.Catalog.GetString ("Guardar");
+			this.fixed2.Add (this.Boton);
+			global::Gtk.Fixed.FixedChild w29 = ((global::Gtk.Fixed.FixedChild)(this.fixed2 [this.Boton]));
+			w29.X = 720;
+			w29.Y = 528;
 			this.Add (this.fixed2);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
@@ -561,6 +572,8 @@ namespace Proyecto
 			this.DefaultWidth = 815;
 			this.DefaultHeight = 576;
 			this.Show ();
+			this.Hola.Clicked += new global::System.EventHandler (this.OnCerrarClicked);
+			this.Boton.Clicked += new global::System.EventHandler (this.OnBotonClicked);
 		}
 	}
 }
