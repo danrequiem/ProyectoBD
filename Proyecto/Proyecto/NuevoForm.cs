@@ -1,5 +1,6 @@
 using System;
 using Gtk;
+
 namespace Proyecto
 {
 	public partial class NuevoForm : Gtk.Window
@@ -16,9 +17,6 @@ namespace Proyecto
 			try{
 
 
-
-
-
 			}catch(Exception e){
 				MessageDialog md = new MessageDialog (
 					null, 
@@ -33,7 +31,7 @@ namespace Proyecto
 		private bool validarNoVacio(){
 			return 
 				(this.txtNombre.Text.Trim() != "" && this.txtApellidoM.Text.Trim() != "" && this.txtApellidoP.Text.Trim() != "" &&
-					this.txtDomicilio.Text.Trim()!= "" && this.txtMun.Text.Trim()!= "" && this.txtEst.Text.Trim()!= "" && this.txtPais.Text.Trim()!= "" &&
+					this.txtDomicilio.Text.Trim()!= "" && this.txtMun.Text.Trim()!= "" && this.txtEst.Text.Trim()!= "" && this.txtPais.Active.ToString ()!= "" &&
 					this.txtCp.Text.Trim()!= "" && this.txtTel.Text.Trim()!= "" && this.txtCelular.Text.Trim()!= "" && this.txtRadio.Text.Trim()!= "" &&
 					this.txtObs.Text.Trim()!= "");
 		}
@@ -60,7 +58,7 @@ namespace Proyecto
 				Persona.cp = txtCp.Text;
 				Persona.municipio = txtMun.Text;
 				Persona.estado = txtEst.Text;
-				Persona.pais = txtPais.Text;
+				Persona.pais = txtPais.Active.ToString ();;
 				Persona.telefono = txtTel.Text;
 				Persona.celular = txtCelular.Text;
 				Persona.radio = txtRadio.Text;
@@ -78,8 +76,7 @@ namespace Proyecto
 					this.txtDomicilio.Text = "";
 					this.txtCp.Text = "";
 					this.txtMun.Text= "";
-					this.txtEst.Text= "";
-					this.txtPais.Text= "";
+					this.txtEst.Text = "";
 					this.txtTel.Text= "";
 					this.txtCelular.Text= "";
 					this.txtRadio.Text= "";
@@ -99,11 +96,7 @@ namespace Proyecto
 			}
 
 		}
-		protected virtual void OnButton1Clicked(object sender, System.EventArgs e)
-		{
-			this.validaciones();
-			this.insertarNuevo();
-		}
+
 
 	}
 }

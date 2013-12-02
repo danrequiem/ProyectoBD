@@ -3,8 +3,11 @@
 
 public partial class MainWindow
 {
+	private global::Gtk.Frame frame2;
 	private global::Gtk.Fixed fixed2;
-	private global::Gtk.Button BtnNuevo;
+	private global::Gtk.Frame frame3;
+	private global::Gtk.Alignment GtkAlignment;
+	private global::Gtk.Button Nuevo;
 
 	protected virtual void Build ()
 	{
@@ -14,26 +17,41 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
+		this.frame2 = new global::Gtk.Frame ();
+		this.frame2.Name = "frame2";
+		this.frame2.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child frame2.Gtk.Container+ContainerChild
 		this.fixed2 = new global::Gtk.Fixed ();
-		this.fixed2.Name = "fixed2";
 		this.fixed2.HasWindow = false;
 		// Container child fixed2.Gtk.Fixed+FixedChild
-		this.BtnNuevo = new global::Gtk.Button ();
-		this.BtnNuevo.CanFocus = true;
-		this.BtnNuevo.Name = "BtnNuevo";
-		this.BtnNuevo.UseUnderline = true;
-		this.BtnNuevo.Label = global::Mono.Unix.Catalog.GetString ("Nuevo");
-		this.fixed2.Add (this.BtnNuevo);
-		global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed2 [this.BtnNuevo]));
-		w1.X = 773;
-		w1.Y = 31;
-		this.Add (this.fixed2);
+		this.frame3 = new global::Gtk.Frame ();
+		this.frame3.Name = "frame3";
+		this.frame3.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child frame3.Gtk.Container+ContainerChild
+		this.GtkAlignment = new global::Gtk.Alignment (0F, 0F, 1F, 1F);
+		this.GtkAlignment.Name = "GtkAlignment";
+		this.GtkAlignment.LeftPadding = ((uint)(12));
+		// Container child GtkAlignment.Gtk.Container+ContainerChild
+		this.Nuevo = new global::Gtk.Button ();
+		this.Nuevo.CanFocus = true;
+		this.Nuevo.Name = "Nuevo";
+		this.Nuevo.UseUnderline = true;
+		this.Nuevo.Label = global::Mono.Unix.Catalog.GetString ("Nuevo");
+		this.GtkAlignment.Add (this.Nuevo);
+		this.frame3.Add (this.GtkAlignment);
+		this.fixed2.Add (this.frame3);
+		global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed2 [this.frame3]));
+		w3.X = 842;
+		w3.Y = 15;
+		this.frame2.Add (this.fixed2);
+		this.Add (this.frame2);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 910;
+		this.DefaultWidth = 990;
 		this.DefaultHeight = 300;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.Nuevo.Clicked += new global::System.EventHandler (this.OnNuevoClicked);
 	}
 }

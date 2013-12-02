@@ -74,6 +74,8 @@
     <Compile Include="gtk-gui\Proyecto.Editar.cs" />
     <Compile Include="NuevoForm.cs" />
     <Compile Include="gtk-gui\Proyecto.NuevoForm.cs" />
+    <Compile Include="mailForm.cs" />
+    <Compile Include="gtk-gui\Proyecto.mailForm.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

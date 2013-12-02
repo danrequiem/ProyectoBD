@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Proyecto/mailForm.cs">
+    <Files>
+      <File FileName="Proyecto/Program.cs" Line="1" Column="1" />
+      <File FileName="Proyecto/MainWindow.cs" Line="176" Column="60" />
+      <File FileName="Proyecto/Registros.cs" Line="1" Column="1" />
+      <File FileName="Proyecto/AccionesDeRegistros.cs" Line="1" Column="1" />
+      <File FileName="Proyecto/MySQL.cs" Line="1" Column="1" />
+      <File FileName="Proyecto/NuevoForm.cs" Line="49" Column="16" />
+      <File FileName="Proyecto/mailForm.cs" Line="40" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

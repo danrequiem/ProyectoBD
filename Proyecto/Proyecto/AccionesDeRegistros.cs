@@ -40,8 +40,8 @@ namespace Proyecto
 		public bool insertarRegistroNuevo(Registros Persona)
 		{
 			this.abrirConexion();
-			string sql = "INSERT INTO `Project`.`Registros` (`ApellidoP`, `ApellidoM`, `Nombre`, `Domicilio`, `CP`, `Municipio`, `Estado`, `Pais`, `Mapa`, `Telefono`, `Celular`, `Radio`, `Observaciones`) " +
-			             "VALUES ('" + Persona.apellidoP + "', '" + Persona.apellidoM + "', '" + Persona.nombre + "', '" + Persona.domicilio + "', '" + Persona.cp+"', '"+Persona.municipio+"', '"+Persona.estado+"', '"+Persona.pais+"', '"+Persona.mapa+"', '"+Persona.telefono+"', '"+Persona.celular+"', '"+Persona.radio+"', '"+Persona.observaciones+"'); ";
+			string sql = "INSERT INTO `Project`.`Registros` (`ApellidoP`, `ApellidoM`, `Nombre`, `Domicilio`, `CP`, `Municipio`, `Estado`, `Pais`, `Mapa`, `Telefono`, `Celular`, `Radio`)" +
+			             "VALUES ('"+Persona.apellidoP+"', 'asdfg', 'asdfg', 'asdfgh', '23456', 'asdfgh', 'asdfghj', 'asdfg', 'asdfgh', '"+Persona.telefono+"', '123456', '123456')";
 			int afectadas = this.ejecutarComando(sql);
 			this.cerrarConexion();
 			return (afectadas>0);
