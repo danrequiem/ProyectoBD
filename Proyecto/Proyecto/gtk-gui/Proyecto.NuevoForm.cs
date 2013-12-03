@@ -10,7 +10,7 @@ namespace Proyecto
 		private global::Gtk.Entry txtNombre;
 		private global::Gtk.Label label3;
 		private global::Gtk.Entry txtEst;
-		private global::Gtk.Entry txtTel;
+		private global::Gtk.Entry txtMail;
 		private global::Gtk.Entry txtTel1;
 		private global::Gtk.Entry txtCelular;
 		private global::Gtk.ComboBox txtPais;
@@ -90,13 +90,13 @@ namespace Proyecto
 			w5.X = 435;
 			w5.Y = 65;
 			// Container child fixed7.Gtk.Fixed+FixedChild
-			this.txtTel = new global::Gtk.Entry ();
-			this.txtTel.CanFocus = true;
-			this.txtTel.Name = "txtTel";
-			this.txtTel.IsEditable = true;
-			this.txtTel.InvisibleChar = '●';
-			this.fixed7.Add (this.txtTel);
-			global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed7 [this.txtTel]));
+			this.txtMail = new global::Gtk.Entry ();
+			this.txtMail.CanFocus = true;
+			this.txtMail.Name = "txtMail";
+			this.txtMail.IsEditable = true;
+			this.txtMail.InvisibleChar = '●';
+			this.fixed7.Add (this.txtMail);
+			global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed7 [this.txtMail]));
 			w6.X = 435;
 			w6.Y = 145;
 			// Container child fixed7.Gtk.Fixed+FixedChild
@@ -559,6 +559,7 @@ namespace Proyecto
 			this.DefaultWidth = 823;
 			this.DefaultHeight = 564;
 			this.Show ();
+			this.Guardar.Clicked += new global::System.EventHandler (this.OnGuardarClicked);
 		}
 	}
 }

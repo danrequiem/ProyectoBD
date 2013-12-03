@@ -9,9 +9,18 @@ namespace Proyecto
 	{
 		 
 
+		private MainWindow padre;
+		private string id;
+		private  Registros Persona;
+
 		public mailForm (MainWindow padrem , string id) : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
+			this.padre = padre;
+			this.id = id;
+			this.cargaAlumno();
+			this.cargaDatos();
+			Para.Sensitive = false;
 
 
 		}
@@ -40,6 +49,22 @@ namespace Proyecto
 			md.Show ();
 
 		}
+		private void cargaAlumno(){
+			AccionesDeRegistros acciones = new AccionesDeRegistros();
+			this.Persona = acciones.obtenerPorId(this.id);
+			if(this.Persona.id == ""){
+				throw new Exception("El alumno no existe.");
+			}
+		}
+
+		private void cargaDatos(){
+
+
+			this.Title = "Enviar mail al registro con ID " + this.Persona.id;
+			Para.Text = this.Persona.mapa;
+
+		}
+
 
 	}
 }

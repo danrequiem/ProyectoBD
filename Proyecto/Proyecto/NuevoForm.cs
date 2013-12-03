@@ -32,8 +32,8 @@ namespace Proyecto
 			return 
 				(this.txtNombre.Text.Trim() != "" && this.txtApellidoM.Text.Trim() != "" && this.txtApellidoP.Text.Trim() != "" &&
 					this.txtDomicilio.Text.Trim()!= "" && this.txtMun.Text.Trim()!= "" && this.txtEst.Text.Trim()!= "" && this.txtPais.Active.ToString ()!= "" &&
-					this.txtCp.Text.Trim()!= "" && this.txtTel.Text.Trim()!= "" && this.txtCelular.Text.Trim()!= "" && this.txtRadio.Text.Trim()!= "" &&
-					this.txtObs.Text.Trim()!= "");
+					this.txtCp.Text.Trim()!= "" && this.txtTel1.Text.Trim()!= "" && this.txtCelular.Text.Trim()!= "" && this.txtRadio.Text.Trim()!= "" &&
+					this.txtObs.Text.Trim()!= "" && this.txtMail.Text.Trim() != "" );
 		}
 
 		private void insertarNuevo()
@@ -58,8 +58,9 @@ namespace Proyecto
 				Persona.cp = txtCp.Text;
 				Persona.municipio = txtMun.Text;
 				Persona.estado = txtEst.Text;
-				Persona.pais = txtPais.Active.ToString ();;
-				Persona.telefono = txtTel.Text;
+				Persona.pais = txtPais.ActiveText.ToString ();
+				Persona.mapa = txtMail.Text;
+				Persona.telefono = txtTel1.Text;
 				Persona.celular = txtCelular.Text;
 				Persona.radio = txtRadio.Text;
 				Persona.observaciones = txtObs.Text;
@@ -75,9 +76,10 @@ namespace Proyecto
 					this.txtApellidoP.Text = "";
 					this.txtDomicilio.Text = "";
 					this.txtCp.Text = "";
+					this.txtMail.Text = "";
 					this.txtMun.Text= "";
 					this.txtEst.Text = "";
-					this.txtTel.Text= "";
+					this.txtTel1.Text= "";
 					this.txtCelular.Text= "";
 					this.txtRadio.Text= "";
 					this.txtObs.Text= "";
@@ -98,6 +100,11 @@ namespace Proyecto
 		}
 
 
+		protected void OnGuardarClicked (object sender, EventArgs e)
+		{
+			this.validaciones ();
+			this.insertarNuevo ();
+		}
 	}
 }
 
