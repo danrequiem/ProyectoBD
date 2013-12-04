@@ -42,7 +42,7 @@ public partial class MainWindow: Gtk.Window
 		this.etiqueta("lblID", "<span size=\"14000\" foreground=\"BLACK\" weight=\"bold\">ID</span>");
 		this.x += 100;
 		this.etiqueta("lblCodigo", "<span size=\"14000\" foreground=\"BLACK\" weight=\"bold\">NOMBRE</span>");
-		this.x += 150;
+		this.x += 170;
 		this.etiqueta("lblNombre", "<span size=\"14000\" foreground=\"BLACK\" weight=\"bold\"> TELEFONO</span>");
 		this.x += 200;
 		this.etiqueta("lblOpciones", "<span size=\"14000\" foreground=\"BLACK\" weight=\"bold\">OPCIONES</span>");
@@ -65,7 +65,7 @@ public partial class MainWindow: Gtk.Window
 		this.etiqueta("lblID_" + registro.id, "<span size=\"12000\" foreground=\"#000000\">" + registro.id + "</span>");
 		this.x += 100;
 		this.etiqueta("lblCodigo_" + registro.id, "<span size=\"12000\" foreground=\"#000000\">" + registro.nombre+" "+ registro.apellidoM + " "+ registro.apellidoP+ "</span>");
-		this.x += 150; 
+		this.x += 170; 
 		this.etiqueta("lblNombre_" + registro.id, "<span size=\"12000\" foreground=\"#000000\">" + registro.telefono+"</span>");
 		this.x += 200;
 		this.opciones(registro);
@@ -188,4 +188,27 @@ public partial class MainWindow: Gtk.Window
 
 
 
+	protected void OnExportarClicked (object sender, EventArgs e)
+	{
+		try
+		{
+		AccionesDeRegistros accion = new AccionesDeRegistros();	
+		accion.exportar ();
+		MessageDialog md = new MessageDialog (null, 
+				                   DialogFlags.Modal,
+				                   MessageType.Info, 
+				                   ButtonsType.None, "Accion realizada con exito.");
+			md.Show ();
+		}
+		catch(Exception Msg)
+		{
+			MessageDialog md = new MessageDialog (null, 
+				DialogFlags.Modal,
+				MessageType.Error, 
+				ButtonsType.None, "Ouch "+ "El Archivo ya exite o ocurrio un error al exportar borre el archivo existente o intentelo de nuevo" );
+			md.Show();
+
+		}
+	
+	}
 }

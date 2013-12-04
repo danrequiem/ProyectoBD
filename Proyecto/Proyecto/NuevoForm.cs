@@ -6,7 +6,6 @@ namespace Proyecto
 	public partial class NuevoForm : Gtk.Window
 	{
 		private MainWindow padre;
-
 		public NuevoForm (MainWindow padre) : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
@@ -65,7 +64,7 @@ namespace Proyecto
 				Persona.radio = txtRadio.Text;
 				Persona.observaciones = txtObs.Text;
 
-				if (acciones.insertarRegistroNuevo (Persona)) {
+				if (acciones.insertarRegistroNuevo (Persona, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))) {
 					MessageDialog md = new MessageDialog (null, 
 						DialogFlags.Modal,
 						MessageType.Info, 

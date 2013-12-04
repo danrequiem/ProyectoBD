@@ -133,7 +133,7 @@ namespace Proyecto
 			this.Persona.radio = this.txtRadio.Text.Trim ();
 			this.Persona.observaciones = this.txtObs.Text.Trim ();
 
-			bool editado = acciones.editarCodigoYNombreDeRegistro(Persona);
+			bool editado = acciones.editarCodigoYNombreDeRegistro(Persona, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
 			if(editado){
 				MessageDialog md = new MessageDialog (null, 

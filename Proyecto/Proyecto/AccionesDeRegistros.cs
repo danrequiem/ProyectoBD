@@ -37,11 +37,11 @@ namespace Proyecto
 			return personas;
 		}
 
-		public bool insertarRegistroNuevo(Registros Persona)
+		public bool insertarRegistroNuevo(Registros Persona, string Fecha)
 		{
 			this.abrirConexion();
-			string sql = "INSERT INTO `Project`.`Registros` (`ApellidoP`, `ApellidoM`, `Nombre`, `Domicilio`, `CP`, `Municipio`, `Estado`, `Pais`, `Mapa`, `Telefono`, `Celular`, `Radio`,`Observaciones`)" +
-			             "VALUES ('"+Persona.apellidoP+"', '"+Persona.apellidoM+"', '"+Persona.nombre+"', '"+Persona.domicilio+"', '"+Persona.cp+"', '"+Persona.municipio+"', '"+Persona.estado+"', '"+Persona.pais+"', '"+Persona.mapa+"', '"+Persona.telefono+"', '"+Persona.celular+"', '"+Persona.radio+"', '"+Persona.observaciones+"')";
+			string sql = "INSERT INTO `Project`.`Registros` (`ApellidoP`, `ApellidoM`, `Nombre`, `Domicilio`, `CP`, `Municipio`, `Estado`, `Pais`, `Mapa`, `Telefono`, `Celular`, `Radio`,`Observaciones`,`saved_at` )" +
+			             "VALUES ('"+Persona.apellidoP+"', '"+Persona.apellidoM+"', '"+Persona.nombre+"', '"+Persona.domicilio+"', '"+Persona.cp+"', '"+Persona.municipio+"', '"+Persona.estado+"', '"+Persona.pais+"', '"+Persona.mapa+"', '"+Persona.telefono+"', '"+Persona.celular+"', '"+Persona.radio+"', '"+Persona.observaciones+"','"+Fecha+"')";
 			int afectadas = this.ejecutarComando(sql);
 			this.cerrarConexion();
 			return (afectadas>0);
@@ -79,13 +79,13 @@ namespace Proyecto
 			return afectadas;
 		}
 
-		public bool editarCodigoYNombreDeRegistro(Registros Persona)
+		public bool editarCodigoYNombreDeRegistro(Registros Persona, string fecha)
 		{
 			this.abrirConexion();
 			string sql = "UPDATE `Project`.`Registros` SET `ApellidoP`='"+Persona.apellidoP+"', `ApellidoM`='"+Persona.apellidoM+"', " +
 			             "`Nombre`='"+Persona.nombre+"', `Domicilio`='"+Persona.domicilio+"', `CP`='"+Persona.cp+"', `Municipio`='"+Persona.municipio+"', " +
 			             "`Estado`='"+Persona.estado+"', `Pais`='"+Persona.pais+"', `Mapa`='"+Persona.mapa+"', `Telefono`='"+Persona.telefono+"', " +
-			             "`Celular`='"+Persona.celular+"', `Radio`='"+Persona.radio+"',`Observaciones`= '"+Persona.observaciones+"'  WHERE `Id`='"+Persona.id+"'";
+			             "`Celular`='"+Persona.celular+"', `Radio`='"+Persona.radio+"',`Observaciones`= '"+Persona.observaciones+"',`modified_in`= '"+fecha+"'  WHERE `Id`='"+Persona.id+"'";
 			int afectadas = this.ejecutarComando(sql);
 			this.cerrarConexion();
 			return (afectadas>0);
@@ -123,6 +123,16 @@ namespace Proyecto
 			this.cerrarConexion();
 			return persona;
 		}
+		public bool exportar()
+		{
+		
+			this.abrirConexion();
+			string sql = "SELECT * FROM Registros INTO OUTFILE 'DataBase.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '' LINES TERMINATED BY '\n'";
+			int afectadas = this.ejecutarComando(sql);
+			this.cerrarConexion();
+			return (afectadas>0);
+		}
+
 
 
 	}
